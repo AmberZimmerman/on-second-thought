@@ -103,37 +103,52 @@ module.exports = {
       });
   },
 
-  // Add a thought to a user
-  // addThought(req, res) {
-  //   console.log("You are adding a thought");
-  //   console.log(req.body);
-  //   console.log(req.params.userId);
-  //   User.findOneAndUpdate(
-  //     { _id: req.params.userId },
-  //     { $addToSet: { thoughts: req.body } },
-  //     { runValidators: true, new: true }
-  //   )
-  //     .then((user) =>
-  //       !user
-  //         ? res.status(404).json({ message: "No user found with that ID :(" })
-  //         : res.json(user)
-  //     )
-  //     .catch((err) => res.status(500).json(err));
-  // },
-  // // Remove assignment from a student
-  // removeAssignment(req, res) {
-  //   Student.findOneAndUpdate(
-  //     { _id: req.params.studentId },
-  //     { $pull: { assignment: { assignmentId: req.params.assignmentId } } },
-  //     { runValidators: true, new: true }
-  //   )
-  //     .then((student) =>
-  //       !student
-  //         ? res
-  //             .status(404)
-  //             .json({ message: "No student found with that ID :(" })
-  //         : res.json(student)
-  //     )
-  //     .catch((err) => res.status(500).json(err));
-  // },
+  //  add a new friend
+  addFriend(req, res) {
+    User.findOneAndUpdate(
+      { _id: req.params.userId },
+      { $addToSet: { friends: { _id: req.params.friendId } } },
+      { runValidators: true, new: true }
+    )
+      .then((user) =>
+        !user
+          ? res.status(404).json({ message: "No user with this id!" })
+          : res.json(user)
+      )
+      .catch((err) => res.status(500).json(err));
+  },
 };
+
+// Add a thought to a user
+// addThought(req, res) {
+//   console.log("You are adding a thought");
+//   console.log(req.body);
+//   console.log(req.params.userId);
+//   User.findOneAndUpdate(
+//     { _id: req.params.userId },
+//     { $addToSet: { thoughts: req.body } },
+//     { runValidators: true, new: true }
+//   )
+//     .then((user) =>
+//       !user
+//         ? res.status(404).json({ message: "No user found with that ID :(" })
+//         : res.json(user)
+//     )
+//     .catch((err) => res.status(500).json(err));
+// },
+// // Remove assignment from a student
+// removeAssignment(req, res) {
+//   Student.findOneAndUpdate(
+//     { _id: req.params.studentId },
+//     { $pull: { assignment: { assignmentId: req.params.assignmentId } } },
+//     { runValidators: true, new: true }
+//   )
+//     .then((student) =>
+//       !student
+//         ? res
+//             .status(404)
+//             .json({ message: "No student found with that ID :(" })
+//         : res.json(student)
+//     )
+//     .catch((err) => res.status(500).json(err));
+// },
