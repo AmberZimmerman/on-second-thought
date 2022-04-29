@@ -83,25 +83,43 @@ module.exports = {
         res.status(500).json(err);
       });
   },
-
-  // Add an assignment to a student
-  addAssignment(req, res) {
-    console.log("You are adding an assignment");
+  // Update a user by its id
+  updateUser(req, res) {
     console.log(req.body);
-    Student.findOneAndUpdate(
-      { _id: req.params.studentId },
-      { $addToSet: { assignments: req.body } },
+
+    User.findOneAndUpdate(
+      { _id: req.params.userId },
+      { $set: req.body },
       { runValidators: true, new: true }
     )
-      .then((student) =>
-        !student
-          ? res
-              .status(404)
-              .json({ message: "No student found with that ID :(" })
-          : res.json(student)
+      .then((user) =>
+        !user
+          ? res.status(404).json({ message: "No user with this id!" })
+          : res.json(user)
       )
-      .catch((err) => res.status(500).json(err));
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
   },
+
+  // Add a thought to a user
+  // addThought(req, res) {
+  //   console.log("You are adding a thought");
+  //   console.log(req.body);
+  //   console.log(req.params.userId);
+  //   User.findOneAndUpdate(
+  //     { _id: req.params.userId },
+  //     { $addToSet: { thoughts: req.body } },
+  //     { runValidators: true, new: true }
+  //   )
+  //     .then((user) =>
+  //       !user
+  //         ? res.status(404).json({ message: "No user found with that ID :(" })
+  //         : res.json(user)
+  //     )
+  //     .catch((err) => res.status(500).json(err));
+  // },
   // // Remove assignment from a student
   // removeAssignment(req, res) {
   //   Student.findOneAndUpdate(
