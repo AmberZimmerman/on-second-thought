@@ -1,22 +1,23 @@
-const express = require('express');
-const db = require('./config/connection');
-const routes = require('./routes');
+const express = require("express");
+const db = require("./config/connection");
+// const routes = require('./routes');
 
 const cwd = process.cwd();
 
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-app.use(express.urlendcoded({ extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(routes);
+// app.use(routes);
 
-db.once('open', () => {
-    app.listen(PORT, () => {
-        console.log(`API server for ${activity}running on port ${PORT}!`);
-    });
+db.once("open", (err, res) => {
+  console.log(err);
+  console.log(res);
+  app.listen(PORT, () => {
+    console.log(`API server running on port ${PORT}!`);
+  });
 });
-
 
 /*GIVEN a social network API
 WHEN I enter the command to invoke the application
