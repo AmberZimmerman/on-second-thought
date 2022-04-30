@@ -17,15 +17,14 @@ module.exports = {
       });
   },
   // Get a single user
-  getSingleUser(req, res) {
-    User.findOne({ _id: req.params.userId })
+  getSingleThought(req, res) {
+    Thought.findOne({ _id: req.params.thoughtId })
       .select("-__v")
-      .then(async (user) =>
-        !user
-          ? res.status(404).json({ message: "No user with that ID" })
+      .then(async (thought) =>
+        !thought
+          ? res.status(404).json({ message: "No thought with that ID" })
           : res.json({
-              user,
-              // grade: await grade(req.params.studentId),
+              thought,
             })
       )
       .catch((err) => {
