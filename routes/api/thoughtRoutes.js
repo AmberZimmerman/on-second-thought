@@ -6,7 +6,9 @@ const {
 } = require("../../controllers/thoughtController");
 
 // /api/Thoughts
-router.route("/").get(getThoughts).post(createThought);
+router.route("/").get(getThoughts);
+
+// .post(createThought);
 
 // /api/Users/:userId
 // router.route("/:userId/").get(getSingleUser).delete(deleteUser).put(updateUser);
