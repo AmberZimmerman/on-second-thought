@@ -1,35 +1,15 @@
 const { ObjectId } = require("mongoose").Types;
 const { User, Thought } = require("../models");
 
-// const headCount = async () =>
-//   Student.aggregate()
-//     .count("studentCount")
-//     .then((numberOfStudents) => numberOfStudents);
-
-// const grade = async (studentId) =>
-//   Student.aggregate([
-//     // only include the given student by using $match
-//     { $match: { _id: ObjectId(studentId) } },
-//     {
-//       $unwind: "$assignments",
-//     },
-//     {
-//       $group: {
-//         _id: ObjectId(studentId),
-//         overallGrade: { $avg: "$assignments.score" },
-//       },
-//     },
-//   ]);
-
 module.exports = {
   // Get all users
-  getUsers(req, res) {
-    User.find()
-      .then(async (users) => {
-        const userObj = {
-          users,
+  getThoughts(req, res) {
+    Thought.find()
+      .then(async (thoughts) => {
+        const thoughtObj = {
+          thoughts,
         };
-        return res.json(userObj);
+        return res.json(thoughtObj);
       })
       .catch((err) => {
         console.log(err);
@@ -134,37 +114,3 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
 };
-
-// Add a thought to a user
-// addThought(req, res) {
-//   console.log("You are adding a thought");
-//   console.log(req.body);
-//   console.log(req.params.userId);
-//   User.findOneAndUpdate(
-//     { _id: req.params.userId },
-//     { $addToSet: { thoughts: req.body } },
-//     { runValidators: true, new: true }
-//   )
-//     .then((user) =>
-//       !user
-//         ? res.status(404).json({ message: "No user found with that ID :(" })
-//         : res.json(user)
-//     )
-//     .catch((err) => res.status(500).json(err));
-// },
-// // Remove assignment from a student
-// removeAssignment(req, res) {
-//   Student.findOneAndUpdate(
-//     { _id: req.params.studentId },
-//     { $pull: { assignment: { assignmentId: req.params.assignmentId } } },
-//     { runValidators: true, new: true }
-//   )
-//     .then((student) =>
-//       !student
-//         ? res
-//             .status(404)
-//             .json({ message: "No student found with that ID :(" })
-//         : res.json(student)
-//     )
-//     .catch((err) => res.status(500).json(err));
-// },

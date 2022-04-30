@@ -16,9 +16,10 @@ router.route("/").get(getUsers).post(createUser);
 router.route("/:userId/").get(getSingleUser).delete(deleteUser).put(updateUser);
 
 // /api/Users/:userId/friends/:friendId
-router.route("/:userId/friends/:friendId/").post(addFriend);
-
-// .delete(removeFriend);
+router
+  .route("/:userId/friends/:friendId/")
+  .post(addFriend)
+  .delete(removeFriend);
 
 // /api/Users/:userId/thoughts
 // router.route("/:userId/thoughts").post(addThought);
