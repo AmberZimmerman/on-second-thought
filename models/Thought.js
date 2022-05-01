@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-const User = require("./User");
+// const User = require("./User");
 
 const reactionSchema = new Schema(
   {
@@ -50,6 +50,7 @@ const thoughtSchema = new Schema(
   {
     toJSON: {
       getters: true,
+      virtuals: true,
     },
   }
 );
