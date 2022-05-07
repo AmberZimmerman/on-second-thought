@@ -1,37 +1,37 @@
 const users = [
   {
     username: "laughingelephant22",
-    email: "funkydiva21@aol.com",
+    email: "laughinge22@aol.com",
   },
   {
     username: "generalmeowmeow",
-    email: "dzboy2000@aol.com",
+    email: "genmeowsquared@aol.com",
   },
   {
     username: "SassyNutmeg",
-    email: "pkaisinger47@gmail.com",
+    email: "sassynutmeg@gmail.com",
   },
 ];
 
 const thoughts = [
   {
-    thoughtText: "Thoughts or Thots",
+    thoughtText: "How many peanuts is too many peanuts?",
     username: "laughingelephant22",
   },
   {
-    thoughtText: "Is this box big enough",
+    thoughtText: "Elephants are very self aware creatures.",
     username: "laughingelephant22",
   },
   {
-    thoughtText: "How did that poop get back there",
+    thoughtText: "Elephants can even paint!",
     username: "laughingelephant22",
   },
   {
-    thoughtText: "How many chickens should I have in stardew valley",
+    thoughtText: "Wet food is way better than hard food!",
     username: "generalmeowmeow",
   },
   {
-    thoughtText: "How many cows should I have in stardew valley",
+    thoughtText: "Middle parted hair is all the rage right now.",
     username: "SassyNutmeg",
   },
 ];
