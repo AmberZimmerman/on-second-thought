@@ -40,11 +40,7 @@ module.exports = {
           { $set: req.body }
         );
       })
-      .then((thought) =>
-        !thought
-          ? res.status(404).json({ message: "No thought created!" })
-          : res.json(thought)
-      )
+      .then(() => res.json({ message: "Thought created" }))
       .catch((err) => res.status(500).json(err));
   },
   // Remove a thought
