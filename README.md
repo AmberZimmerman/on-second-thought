@@ -8,9 +8,11 @@
 
 [Click here for the most current description of this license](https://opensource.org/licenses/MIT)
 
-### Link to deployed project:
+### Link to video walkthough:
 
-Video link provided
+Clcik below to watch a four minute instruction video!
+
+[Walkthough Video](https://drive.google.com/file/d/133NcYuzGOFutr-_NW9NsUBHH87dIUvtK/view?usp=sharing)
 
 ## Table of Contents:
 
@@ -28,11 +30,14 @@ On Second Thought is an API for a social network web application where friends a
 ### Installation:
 
 In order to install the necessary dependencies, open the console and run the following:
-`npm i npm run seed npm start`
+
+- `npm i`
+- `npm run seed`
+- `npm start`
 
 ### Usage Instructions:
 
-usage here
+Since this is only the backend API portion, the user will need to use a platform like Postman or Insomnia to test the routes.
 
 ### Questions:
 
@@ -40,4 +45,6 @@ If you have any questions contact me on [GitHub](https://github.com/AmberZimmerm
 
 ### Screenshot:
 
-![My Image](Project screenshot not available for this project)
+![Moving gif of general usage](./assets/on-second-thought-gif.gif)
+
+![Screenshot of routes to test in Insomnia](./assets/on-second-thought-route-screenshot.png)
